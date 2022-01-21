@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, Form, FormField, TextInput } from 'grommet';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const defaultValue = {
     ingredient: ''
@@ -8,7 +8,7 @@ const defaultValue = {
 
 const SearchBox = () => {
     const [value, setValue] = useState(defaultValue);
-    let history = useHistory();
+    let navigate = useNavigate();
 
     const handleChange = evt => {
         const { name, value } = evt.target;
@@ -21,12 +21,12 @@ const SearchBox = () => {
     const handleSubmit = () => {
         //call api and redirect to results page
         setValue(value);
-        history.push('/results');
+        navigate('/results');
     }
     
     return (
         <>
-            <Box width="medium">
+            <Box width="medium" align="center">
                 <Form value={value} onSubmit={handleSubmit}>
                     <FormField label="Ingredient" name="ingredient">
                         <TextInput name="ingredient" onChange={handleChange} />

@@ -2,7 +2,6 @@ import React from 'react';
 import SiteFooter from '../shared/SiteFooter';
 import SearchBox from './SearchBox';
 import { Box, Heading, Main } from 'grommet';
-import './Homepage.css';
 
 const Homepage = () => {
     return (

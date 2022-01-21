@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Grommet } from 'grommet';
 import './App.css';
 import Results from './components/Results';
@@ -11,11 +11,11 @@ function App() {
     <Grommet>
       <div className="App">
         <BrowserRouter>
-          <Switch>
-            <Route exact path='/' component={Homepage} />
-            <Route exact path='/results' component={Results} />
-            <Route path='*' component={NotFound} />
-          </Switch>
+          <Routes>
+            <Route path='/' element={<Homepage/>} />
+            <Route path='/results' element={<Results/>} />
+            <Route path='*' element={<NotFound/>} />
+          </Routes>
         </BrowserRouter>
       </div>
     </Grommet>
