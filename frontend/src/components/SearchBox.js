@@ -18,9 +18,11 @@ const SearchBox = () => {
             ...data,
             [name]: value
         }));
+        console.log(value);
     };
 
     const handleSubmit = () => {
+        console.log(value);
         async function getResults() {
             await getRecipes(value)
         };
