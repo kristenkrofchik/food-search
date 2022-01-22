@@ -2,11 +2,11 @@ const express = require('express');
 
 const { NotFoundError } = require("./expressError");
 
-//const routes = require('./routes');
+const routes = require('./routes');
 
 const app = express();
 
-//app.use(routes);
+app.use(routes);
 
 /** 404 handler */
 
