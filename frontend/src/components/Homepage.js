@@ -12,7 +12,9 @@ const Homepage = () => {
                         <Heading level="1" responsive="true" textAlign="center" color="dark" >The Meal Maker</Heading>
                         <Heading level="3" responsive="true" textAlign="center" color="dark">You pick an ingredient, we'll give you a list of things to make!</Heading>
                     </Box>
-                    <SearchBox />
+                    <Box align="center">
+                        <SearchBox />
+                    </Box>
                 </Main>
             </div>
             <SiteFooter />
