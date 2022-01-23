@@ -9,8 +9,8 @@ const SearchBox = () => {
         ingredient: ''
     });
     
-    const [result, setResult] = useState({
-        result: ''
+    const [results, setResults] = useState({
+        results: ''
     });
 
     let navigate = useNavigate();
@@ -24,9 +24,9 @@ const SearchBox = () => {
         async function getResults() {
             await getRecipes(ingredient.ingredient)
         };
-        setResult(getResults());
+        setResults(getResults());
         setIngredient('');
-        navigate('/results', {state: result});
+        navigate('/results', {state: {results: results} });
     };
     
     return (
