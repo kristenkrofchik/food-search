@@ -3,39 +3,38 @@ import { Box, Button, Form, FormField, TextInput } from 'grommet';
 import { useNavigate } from 'react-router-dom';
 import getRecipes from '../Api';
 
-const defaultValue = {
-    ingredient: ''
-};
 
 const SearchBox = () => {
-    const [value, setValue] = useState(defaultValue);
-    const [result, setResult] = useState();
+    const [ingredient, setIngredient] = useState({
+        ingredient: ''
+    });
+    
+    const [result, setResult] = useState({
+        result: ''
+    });
+
     let navigate = useNavigate();
 
     const handleChange = evt => {
-        const { name, value } = evt.target;
-        setValue(data => ({
-            ...data,
-            [name]: value
-        }));
-        console.log(value);
+        setIngredient({ingredient: evt.target.value});
     };
 
-    const handleSubmit = () => {
-        console.log(value);
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
         async function getResults() {
-            await getRecipes(value)
+            await getRecipes(ingredient.ingredient)
         };
         setResult(getResults());
+        setIngredient('');
         navigate('/results', {state: result});
     };
     
     return (
         <>
             <Box width="medium" align="center">
-                <Form value={value} onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit}>
                     <FormField label="Ingredient" name="ingredient">
-                        <TextInput name="ingredient" onChange={handleChange} />
+                        <TextInput name="ingredient" value={ingredient.ingredient} onChange={handleChange} />
                     </FormField>
                     <Box direction="row" justify="between" margin={{ top: "medium" }}>
                         <Button type="submit" label="Submit" />
