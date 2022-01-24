@@ -19,14 +19,13 @@ const SearchBox = () => {
         setIngredient({ingredient: evt.target.value});
     };
 
-    const handleSubmit = (evt) => {
+    async function handleSubmit(evt) {
         evt.preventDefault();
-        async function getResults() {
-            await getRecipes(ingredient.ingredient)
-        };
-        setResults(getResults());
+        let recipes = await getRecipes(ingredient.ingredient);
+        setResults({ results: recipes });
+        console.log(results);
         setIngredient('');
-        navigate('/results', {state: {results: results} });
+        navigate('/results'); 
     };
     
     return (
