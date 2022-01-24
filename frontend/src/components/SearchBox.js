@@ -31,6 +31,10 @@ const SearchBox = () => {
         setIngredient('');
         /*navigate('/results', {state: {recipeResults: result}});*/
     };
+
+
+
+
     
     return (
         <>
