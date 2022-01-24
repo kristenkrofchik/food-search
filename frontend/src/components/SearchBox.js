@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Box, Button, Form, FormField, TextInput } from 'grommet';
 //import { useNavigate } from 'react-router-dom';
 import getRecipes from '../Api';
-import { useEffect } from 'react/cjs/react.production.min';
 
 
 const SearchBox = () => {
@@ -14,6 +13,7 @@ const SearchBox = () => {
         result: ''
     });
 
+
     //let navigate = useNavigate();
 
     const handleChange = evt => {
@@ -24,7 +24,7 @@ const SearchBox = () => {
         evt.preventDefault();
         async function getResults() {
             let recipes = await getRecipes(ingredient.ingredient);
-            setResult(recipes.result);
+            setResult(recipes);
         };
         getResults();
         console.log(result);
@@ -33,9 +33,6 @@ const SearchBox = () => {
     };
 
 
-
-
-    
     return (
         <>
             <Box width="medium" align="center">
