@@ -24,7 +24,7 @@ const SearchBox = () => {
         evt.preventDefault();
         async function getResults() {
             let recipes = await getRecipes(ingredient.ingredient);
-            setResult(recipes);
+            setResult(recipes.result);
         };
         getResults();
         console.log(result);
