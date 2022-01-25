@@ -8,11 +8,23 @@ async function getRecipes(ingredient) {
             "Content-Type": "application/json",
           };
         let result = await axios.get(`http://localhost:3001/get-results/${ingredient}`, { headers });
-        localStorage.setItem('result', JSON.stringify(result.data));
+        //localStorage.setItem('result', JSON.stringify(result.data));
         return result.data;
     } catch(err) {
-        console.error('FRONTEND API ERROR', err.response);
+        console.error('FRONTEND API ERROR: getRecipes', err.response);
     };
 };
 
-export default getRecipes;
+async function getMoreInfo(id) {
+    try {
+        const headers = {
+            "Content-Type": "application/json",
+          };
+        let result = await axios.get(`http://localhost:3001/get-info/${id}`, { headers });
+        return result.data;
+    } catch(err) {
+        console.error('FRONTEND API ERROR: getMoreInfo', err.response);
+    }
+}
+
+export {getRecipes, getMoreInfo};

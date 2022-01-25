@@ -5,7 +5,7 @@ import './App.css';
 import Results from './components/Results';
 import Homepage from './components/Homepage';
 import NotFound from './components/NotFound';
-import getRecipes from './Api';
+import {getRecipes} from './Api';
 
 
 function App() {
