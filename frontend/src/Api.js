@@ -21,7 +21,7 @@ async function getMoreInfo(id) {
             "Content-Type": "application/json",
           };
         let result = await axios.get(`http://localhost:3001/get-info/${id}`, { headers });
-        return result.data;
+        return result.data.sourceUrl;
     } catch(err) {
         console.error('FRONTEND API ERROR: getMoreInfo', err.response);
     }
