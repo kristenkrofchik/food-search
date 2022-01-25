@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import { Card, CardBody, CardHeader, Image, ResponsiveContext } from 'grommet';
 
-const RecipeCard = (result) => {
-    const { title, image } = result;
+const RecipeCard = (item) => {
+    const { title, image } = item;
 
     const size = useContext(ResponsiveContext);
 

@@ -1,3 +1,5 @@
+//Function for calling backend GET route. returns result data
+
 import axios from 'axios';
 
 async function getRecipes(ingredient) {

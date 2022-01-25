@@ -1,16 +1,13 @@
 import React, { useContext } from 'react';
-import { useLocation } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 import SiteFooter from '../shared/SiteFooter';
 import { Box, Grid, Heading, Main, ResponsiveContext } from 'grommet';
 
 
-const Results = () => {
-    let location = useLocation();
-    let results = location.state.results;
+const Results = (props) => {
     
-    let resultsItems = results.map(result => (
-        <RecipeCard {...result} key={result.id} />
+    let resultItems = props.result.map(item => (
+        <RecipeCard {...item} key={item.id} />
     ));
     
     const size = useContext(ResponsiveContext);
@@ -24,7 +21,7 @@ const Results = () => {
                 <Box pad='medium'>
                     <Grid columns={size !== 'small' ? 'small' : '100%'}
                     gap='small'>
-                        { resultsItems }
+                        { resultItems }
                     </Grid>
                 </Box>
             </Main>
