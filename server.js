@@ -1,3 +1,5 @@
+//Backend server start up for Meal Maker app
+
 const app = require('./app');
 const PORT = process.env.PORT || 3001;
 

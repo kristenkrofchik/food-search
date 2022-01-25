@@ -1,3 +1,5 @@
+//Express app setup for Meal Maker app
+
 const express = require('express');
 
 const { NotFoundError } = require("./expressError");

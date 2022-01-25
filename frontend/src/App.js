@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Grommet } from 'grommet';
 import './App.css';
@@ -7,6 +7,7 @@ import Homepage from './components/Homepage';
 import NotFound from './components/NotFound';
 import getRecipes from './Api';
 
+
 function App() {
 
   const [ingredient, setIngredient] = useState({
@@ -14,21 +15,27 @@ function App() {
   });
 
   const [result, setResult] = useState({
-    result: ''
+    result: []
   });
 
   async function foodSearch() {
-    const result = await getRecipes(ingredient.ingredient);
-    setResult(result);
+    const recipes = await getRecipes(ingredient.ingredient);
+    setResult({result: recipes});
   };
+  
+
+  useEffect(() => {
+    console.log(result);
+  }, [result]);
+
 
   return (
     <Grommet>
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Homepage ingredient={ingredient} setIngredient={setIngredient} handleSearch={foodSearch} />} />
-            <Route path='/results' element={<Results result={result}/>} />
+            <Route path='/' element={<Homepage ingredient={ingredient} setIngredient={setIngredient} handleSearch={foodSearch}/> } />
+            <Route path='/results' element={<Results result={result} />} />
             <Route path='*' element={<NotFound/>} />
           </Routes>
         </BrowserRouter>

@@ -8,9 +8,10 @@ async function getRecipes(ingredient) {
             "Content-Type": "application/json",
           };
         let result = await axios.get(`http://localhost:3001/get-results/${ingredient}`, { headers });
+        localStorage.setItem('result', JSON.stringify(result.data));
         return result.data;
     } catch(err) {
-        console.error('API ERROR', err.response);
+        console.error('FRONTEND API ERROR', err.response);
     };
 };
 

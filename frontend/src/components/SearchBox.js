@@ -1,7 +1,6 @@
-import React /*{ useState, useEffect }*/ from 'react';
+import React from 'react';
 import { Box, Button, Form, FormField, TextInput } from 'grommet';
 import { useNavigate } from 'react-router-dom';
-//import { useNavigate } from 'react-router-dom';
 //import getRecipes from '../Api';
 
 
@@ -26,14 +25,11 @@ const SearchBox = (props) => {
         setResult({result: recipes});
     };*/
 
-    /*useEffect(() => {
-        console.log(result);
-      }, [result]);*/
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
         props.handleSearch();
-        navigate('/results');
+        navigate('/results', {state: {result: props.result}});
     };
 
 

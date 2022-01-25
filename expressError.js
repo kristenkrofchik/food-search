@@ -1,3 +1,5 @@
+//Error handling- extends normal JS error
+
 class ExpressError extends Error {
     constructor(message, status) {
       super();

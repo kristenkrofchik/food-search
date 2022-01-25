@@ -6,6 +6,8 @@ const router = new express.Router();
 require('dotenv').config()
 const API_KEY = process.env.API_KEY;
 
+//The app's single GET route. Receives ingredient as a request param from frontend. Calls spoonacular API with ingredient. Returns result data as json array
+
 router.get('/get-results/:ingredient', async (request, response, next) => {
     try {
         const ingredient = request.params.ingredient;
