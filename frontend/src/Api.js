@@ -5,7 +5,8 @@ async function getRecipes(ingredient) {
         const headers = {
             "Content-Type": "application/json",
           };
-        return await axios.get(`http://localhost:3001/get-results/${ingredient}`, { headers });
+        let result = await axios.get(`http://localhost:3001/get-results/${ingredient}`, { headers });
+        return result.data;
     } catch(err) {
         console.error('API ERROR', err.response);
     };

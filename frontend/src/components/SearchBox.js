@@ -27,7 +27,6 @@ const SearchBox = () => {
             setResult(recipes);
         };
         getResults();
-        console.log(result);
         setIngredient('');
         /*navigate('/results', {state: {recipeResults: result}});*/
     };
