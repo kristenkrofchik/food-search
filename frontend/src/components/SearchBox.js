@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, Form, FormField, TextInput } from 'grommet';
 //import { useNavigate } from 'react-router-dom';
 import getRecipes from '../Api';
@@ -20,12 +20,17 @@ const SearchBox = () => {
         setIngredient({ingredient: evt.target.value});
     };
 
+    async function getResults() {
+        let recipes = await getRecipes(ingredient.ingredient);
+        setResult({result: recipes});
+    }
+
+    useEffect(() => {
+        console.log(result);
+      }, [result])
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        async function getResults() {
-            let recipes = await getRecipes(ingredient.ingredient);
-            setResult(recipes);
-        };
         getResults();
         setIngredient('');
         /*navigate('/results', {state: {recipeResults: result}});*/
