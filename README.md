@@ -45,6 +45,15 @@ $ npm install
 $ npm start
 ```
 
+### Testing
+
+1. Run npm test
+
+```bash
+$ npm test
+```
+
+
 ### Technologies & Resources Used
 [Node.js](https://nodejs.org/en/docs/)
 
