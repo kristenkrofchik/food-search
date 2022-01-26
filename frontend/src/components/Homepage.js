@@ -19,8 +19,8 @@ const Homepage = (props) => {
 
     return (
         <>
-            <div>
-                <Main pad="medium">
+            <Main pad="medium">
+                <Box className='main-image'>
                     <Box align="center">
                         <Heading level="1" responsive textAlign="center" color="dark" >The Meal Maker</Heading>
                         <Heading level="3" responsive textAlign="center" color="dark">You pick an ingredient, we'll give you a list of things to make!</Heading>
@@ -35,8 +35,8 @@ const Homepage = (props) => {
                             </Box>
                         </Form>
                     </Box>
-                </Main>
-            </div>
+                </Box>
+            </Main>
             <SiteFooter />
         </>
     )

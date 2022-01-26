@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Grommet } from 'grommet';
 import './App.css';
@@ -8,6 +8,33 @@ import Homepage from './components/Homepage';
 import NotFound from './components/NotFound';
 import {getRecipes} from './Api';
 
+const theme = {
+  global: {
+    colors: {
+      brand: '#0A0808',
+      'accent-1': '#cebb10',
+      'neutral-1': '#f5f5f1',
+      background: {
+        color: "brand"
+      },
+      text: {
+        light: 'brand',
+        dark: 'neutral-1',
+      },
+    },
+    font: {
+      family: "'Unna', serif",
+      face: `
+        @font-face {
+          font-family: "Unna";
+          src: url("./fonts/Unna/Unna-Regular.ttf") format('ttf');
+        }
+      `,
+      size: '20px',
+      height: '22px',
+    },
+  },
+};
 
 function App() {
 
@@ -26,7 +53,7 @@ function App() {
   };
   
   return (
-    <Grommet>
+    <Grommet theme={theme}>
       <div className="App">
         <BrowserRouter>
           <Routes>

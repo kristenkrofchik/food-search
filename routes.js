@@ -20,5 +20,17 @@ router.get('/get-results/:ingredient', async (request, response, next) => {
     }
 })
 
+router.get('/get-info/:id', async (request, response, next) => {
+    try {
+        const id = request.params.id;
+        let result = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
+        console.log(result.data);
+        response.status(200).json(result.data);
+    } catch(error) {
+        console.log(error);
+        throw new BadRequestError(message= 'There was an error. Please try again.')
+    }
+})
+
 
 module.exports = router;
