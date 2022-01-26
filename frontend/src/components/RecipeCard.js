@@ -1,13 +1,15 @@
 import React, {useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Card, CardBody, CardFooter, CardHeader, Image, ResponsiveContext } from 'grommet';
-import { getMoreInfo } from '../Api';
+
+// Individual recipe card. There will be one for each recipe on the Results page.
 
 const RecipeCard = (item) => {
     const { id, title, image } = item;
 
     const size = useContext(ResponsiveContext);
 
+    //on click navigtes user to an individual page for that recipe with more info.
     let navigate = useNavigate();
 
     const onClick = (evt) => {

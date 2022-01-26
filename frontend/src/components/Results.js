@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import RecipeCard from './RecipeCard';
 import SiteFooter from '../shared/SiteFooter';
+import NavBar from '../shared/NavBar';
 import { Box, Grid, Heading, Main, ResponsiveContext } from 'grommet';
 
 
@@ -16,7 +17,8 @@ const Results = (props) => {
     return (
         <>
             <Main pad='medium'>
-                <Heading level='1' responsive textAlign='center'>
+                <NavBar />
+                <Heading level='1' responsive textAlign='center' className="heading">
                     Your Recipes
                 </Heading>
                 <Box pad='medium'>

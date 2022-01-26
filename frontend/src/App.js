@@ -8,11 +8,13 @@ import Homepage from './components/Homepage';
 import NotFound from './components/NotFound';
 import {getRecipes} from './Api';
 
+//Grommet UI presets- colors, font
+
 const theme = {
   global: {
     colors: {
       brand: '#0A0808',
-      'accent-1': '#cebb10',
+      'accent-1': '#df9917',
       'neutral-1': '#f5f5f1',
       background: {
         color: "brand"
@@ -22,21 +24,12 @@ const theme = {
         dark: 'neutral-1',
       },
     },
-    font: {
-      family: "'Unna', serif",
-      face: `
-        @font-face {
-          font-family: "Unna";
-          src: url("./fonts/Unna/Unna-Regular.ttf") format('ttf');
-        }
-      `,
-      size: '20px',
-      height: '22px',
-    },
   },
 };
 
 function App() {
+
+  //setting state variables for app
 
   const [ingredient, setIngredient] = useState({
     ingredient: ''
@@ -46,7 +39,7 @@ function App() {
     result: []
   });
 
-
+  //function that calls an Api.js route to get recipe results
   async function foodSearch() {
     const recipes = await getRecipes(ingredient.ingredient);
     setResult({result: recipes});
