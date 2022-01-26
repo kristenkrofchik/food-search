@@ -12,6 +12,7 @@ const Results = (props) => {
     
     const size = useContext(ResponsiveContext);
 
+    
     return (
         <>
             <Main pad='medium'>
