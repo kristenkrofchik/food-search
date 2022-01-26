@@ -16,10 +16,17 @@
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@babel/preset-env": "<current-version>",
+    "@babel/preset-react": "<current-version>",
+    "babel-jest": "<current-version>",
+    "jest": "<current-version>",
+    "react-test-renderer": "<current-version>"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
