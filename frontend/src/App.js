@@ -6,7 +6,7 @@ import Results from './components/Results';
 import SingleResult from './components/SingleResult';
 import Homepage from './components/Homepage';
 import NotFound from './components/NotFound';
-import {getRecipes, getMoreInfo} from './Api';
+import {getRecipes} from './Api';
 
 
 function App() {
@@ -25,12 +25,6 @@ function App() {
     setResult({result: recipes});
   };
   
-
-  useEffect(() => {
-    console.log(result);
-  }, [result]);
-
-
   return (
     <Grommet>
       <div className="App">
